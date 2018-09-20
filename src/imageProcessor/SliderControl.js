@@ -7,6 +7,16 @@ import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/lab/Slider';
 import {connect} from 'react-redux';
 
+//import MuiThemeProvider from 'material-ui/lib/MuiThemeProvider';
+
+//import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+
+// import getMuiTheme from 'material-ui/lib/styles/getMuiTheme';
+
+// import createMuiTheme from 'material-ui/styles/theme';
+
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
 // -- CUSTOM ------
 import {
     setBrightness,
@@ -16,12 +26,56 @@ import {
     setBlur
 } from './ipActionCreators';
 
+const muiTheme = createMuiTheme({
+
+
+    overrides: {
+
+        MuiTypography: {
+            colorTextPrimary: {
+                color: "#644"
+            }
+        },
+
+
+        MuiSlider: {
+            thumb: {
+                backgroundColor: '#caa',
+                width: 15,
+                height: 12,
+                borderRadius: '10%',
+                border: 'solid 1px #A88',
+            },
+
+            track: {
+                backgroundColor: '#fff',
+                height: 10,
+                border: 'solid 1px #A88'
+            },
+
+            trackAfter: {
+                opacity: 1,
+            },
+
+            trackBefore: {
+                backgroundColor: '#000',
+                opacity: 0.1,
+            }
+        },
+    }
+
+});
+
 const styles = {
     root: {
-        width: 300,
-        ['@media (max-width:780px)']: { // eslint-disable-line no-useless-computed-key
-            width: 100
-        }
+        width: '90%',
+
+
+        // ['@media (max-width:780px)']: { // eslint-disable-line no-useless-computed-key
+        //     width: 100
+        // }
+
+
     },
 };
 
@@ -70,14 +124,18 @@ class SliderControl extends React.Component {
 
         return (
             <div className={classes.root}>
-                <Typography id="label">{label}</Typography>
-                <Slider
-                    value={value}
-                    aria-labelledby="label"
-                    onChange={this.handleChange}
-                    min={min}
-                    max={max}
-                />
+                <MuiThemeProvider theme={muiTheme}>
+                    <Typography
+                        color="textPrimary"
+                    >{label}</Typography>
+                    <Slider
+                        value={value}
+                        aria-labelledby="label"
+                        onChange={this.handleChange}
+                        min={min}
+                        max={max}
+                    />
+                </MuiThemeProvider>
             </div>
         );
     }
