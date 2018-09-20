@@ -73,7 +73,6 @@ class SliderControl extends React.Component {
                     min={min}
                     max={max}
                 />
-                <div>{value}</div>
             </div>
         );
     }
