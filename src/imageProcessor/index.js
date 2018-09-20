@@ -1,5 +1,6 @@
 import React from 'react';
 // import {connect} from "react-redux";
+
 // ---- custom ----
 import IpImage from './IpImage';
 import SliderControl from './SliderControl';

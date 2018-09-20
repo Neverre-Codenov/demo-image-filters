@@ -1,12 +1,9 @@
 import React from 'react';
 import {connect} from "react-redux";
 
-
 class IpImage extends React.Component {
 
     render() {
-
-        console.log(this.props.ipState);
 
         const {
             brightness,
@@ -15,25 +12,6 @@ class IpImage extends React.Component {
             hue,
             blur
         } = this.props.ipState;
-
-        // const filters = `
-        //     contrast(${contrast}%)
-        //     brightness(${brightness}%)
-        //     grayscale(${grayscale}%)
-        //     hue-rotate(${hue})
-        //     blur(${blur}%)
-        // `;
-
-        // const filters = `
-        //     contrast(${contrast}%)
-        //     brightness(${brightness}%)
-        //     hue-rotate(${hue}deg)
-        // `;
-
-        // const filters = `
-        //     contrast(${contrast}%)
-        //     brightness(${brightness}%)
-        // `;
 
         const imgStyles = {
             height: '300px',
@@ -60,5 +38,3 @@ const mapStateToProps = ( state, ownProps ) => {
 IpImage = connect(mapStateToProps)(IpImage);
 
 export default IpImage;
-
-

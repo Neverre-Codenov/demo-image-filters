@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/lab/Slider';
-
-
 import {connect} from 'react-redux';
 
+// -- CUSTOM ------
 import {
     setBrightness,
     setContrast,
@@ -14,7 +13,6 @@ import {
     setHue,
     setBlur
 } from './ipActionCreators';
-
 
 const styles = {
     root: {
@@ -52,12 +50,7 @@ class SliderControl extends React.Component {
             case "sl-blur":
                 this.props.dispatchBlurValue( value );
                 break;
-
-
         }
-
-
-
     };
 
     render() {
@@ -89,7 +82,6 @@ class SliderControl extends React.Component {
 SliderControl.propTypes = {
     classes: PropTypes.object.isRequired,
 };
-
 
 const  mapDispatchToProps = ( dispatch ) => {
 
