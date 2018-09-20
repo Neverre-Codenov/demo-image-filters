@@ -11,10 +11,10 @@ export const ipReducer = ( state = s0, action ) =>  {
     let newState;
     switch (action.type) {
         case "contrast":
-             newState = {...state, contrast: action.payload};
+            newState = {...state, contrast: action.payload};
             return newState;
         case "brightness":
-             newState = {...state, brightness: action.payload};
+            newState = {...state, brightness: action.payload};
             return newState;
         case "grayscale":
             newState = {...state, grayscale: action.payload};
