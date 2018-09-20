@@ -7,6 +7,8 @@ import {connect} from "react-redux";
 
 class ImageProcessor extends React.Component {
 
+
+
     constructor(props) {
 
         super(props);
@@ -27,33 +29,48 @@ class ImageProcessor extends React.Component {
             brightness
         } = this.props.ipState;
 
+        const imgStyles = {
+            height: '300px',
+
+            //filter: 'contrast(175%) brightness(' + brightness + '%)'
+
+            filter: 'brightness(100%) grayscale(' + brightness + '%)'
+        };
+
         return (
 
             <div className="image-processor-area">
 
-                <ProcessImage
-                    image='http://localhost:3000/test-image.jpg'
-                    resize={{ width: 500, height: 300 }}
-                    // colors={{
-                    //     mix: {
-                    //         color: 'mistyrose',
-                    //         amount: 20
-                    //     }
-                    // }}
-                    brightness={brightness}
-                    contrast={0}
-                    greyscale={0}
+                {/*<ProcessImage*/}
+                    {/*image='http://localhost:3000/test-image.jpg'*/}
+                    {/*resize={{ width: 500, height: 300 }}*/}
+                    {/*// colors={{*/}
+                    {/*//     mix: {*/}
+                    {/*//         color: 'mistyrose',*/}
+                    {/*//         amount: 20*/}
+                    {/*//     }*/}
+                    {/*// }}*/}
+                    {/*brightness={brightness}*/}
+                    {/*contrast={0}*/}
+                    {/*greyscale={0}*/}
 
 
-                    processedImage={(src, err) => this.setState({ src, err})}
-                />
+                    {/*processedImage={(src, err) => this.setState({ src, err})}*/}
+                {/*/>*/}
+
+                <div className="image-area">
+                    <img
+                        src="http://localhost:3000/test-image.jpg"
+                        style={imgStyles}
+                    />
+                </div>
 
 
                 <SliderControl
                   label="contrast"
-                  min={-1}
-                  max={1}
-                  initValue={0}
+                  min={0}
+                  max={200}
+                  initValue={100}
                 />
 
                 <div className='test'>test {this.props.ipState.brightness}</div>
