@@ -7,7 +7,10 @@ import Slider from '@material-ui/lab/Slider';
 
 import {connect} from 'react-redux';
 
-import { setBrightness } from './ipActionCreators';
+import {
+    setBrightness,
+    setContrast
+} from './ipActionCreators';
 
 
 const styles = {
@@ -27,9 +30,21 @@ class SliderControl extends React.Component {
     }
 
     handleChange = (event, value) => {
+
         this.setState({ value });
 
-        this.props.dispatchBrightnessValue( value );
+        switch(this.props.id) {
+            case "sl-brightness":
+                this.props.dispatchBrightnessValue( value );
+                break;
+            case "sl-contrast":
+                this.props.dispatchContrastValue( value );
+                break;
+
+
+        }
+
+
 
     };
 
@@ -69,9 +84,11 @@ const  mapDispatchToProps = ( dispatch ) => {
     // this.props.dispatch = dispatch;
 
     const dispatchBrightnessValue = (value) => { dispatch( setBrightness( value ) ) };
+    const dispatchContrastValue = (value) => { dispatch( setContrast( value ) ) };
 
     const dispatchesObj = {
-        dispatchBrightnessValue
+        dispatchBrightnessValue,
+        dispatchContrastValue
     };
 
     return(dispatchesObj);

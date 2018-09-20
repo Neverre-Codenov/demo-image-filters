@@ -12,10 +12,19 @@ class ImageProcessor extends React.Component {
                 <IpImage />
 
                 <SliderControl
-                  label="contrast"
+                  id="sl-brightness"
+                  label="Brightness"
                   min={0}
                   max={200}
                   initValue={100}
+                />
+
+                <SliderControl
+                    id="sl-contrast"
+                    label="Contrast"
+                    min={0}
+                    max={200}
+                    initValue={100}
                 />
 
             </div>

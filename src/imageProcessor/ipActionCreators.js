@@ -6,3 +6,11 @@ export const setBrightness = ( value ) => {
     return action;
 };
 
+export const setContrast = ( value ) => {
+    const action = {
+        type: "contrast",
+        payload: value
+    };
+    return action;
+};
+

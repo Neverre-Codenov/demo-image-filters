@@ -7,12 +7,13 @@ class IpImage extends React.Component {
     render() {
 
         const {
-            brightness
+            brightness,
+            contrast
         } = this.props.ipState;
 
         const imgStyles = {
             height: '300px',
-            filter: 'contrast(100%) brightness(' + brightness + '%)'
+            filter: 'contrast(' + contrast + '%) brightness(' + brightness + '%)'
         };
 
         return(
