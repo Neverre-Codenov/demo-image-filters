@@ -19,6 +19,9 @@ import {
 const styles = {
     root: {
         width: 300,
+        ['@media (max-width:780px)']: { // eslint-disable-line no-useless-computed-key
+            width: 100
+        }
     },
 };
 
