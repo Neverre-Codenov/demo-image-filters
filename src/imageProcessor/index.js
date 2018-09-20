@@ -27,6 +27,30 @@ class ImageProcessor extends React.Component {
                     initValue={100}
                 />
 
+                <SliderControl
+                    id="sl-grayscale"
+                    label="Grayscale"
+                    min={0}
+                    max={100}
+                    initValue={0}
+                />
+
+                <SliderControl
+                    id="sl-hue"
+                    label="Hue"
+                    min={0}
+                    max={360}
+                    initValue={0}
+                />
+
+                <SliderControl
+                    id="sl-blur"
+                    label="Blur"
+                    min={0}
+                    max={50}
+                    initValue={0}
+                />
+
             </div>
 
         )

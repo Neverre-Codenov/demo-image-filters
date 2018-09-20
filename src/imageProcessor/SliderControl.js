@@ -9,7 +9,10 @@ import {connect} from 'react-redux';
 
 import {
     setBrightness,
-    setContrast
+    setContrast,
+    setGrayscale,
+    setHue,
+    setBlur
 } from './ipActionCreators';
 
 
@@ -39,6 +42,15 @@ class SliderControl extends React.Component {
                 break;
             case "sl-contrast":
                 this.props.dispatchContrastValue( value );
+                break;
+            case "sl-grayscale":
+                this.props.dispatchGrayscaleValue( value );
+                break;
+            case "sl-hue":
+                this.props.dispatchHueValue( value );
+                break;
+            case "sl-blur":
+                this.props.dispatchBlurValue( value );
                 break;
 
 
@@ -81,14 +93,18 @@ SliderControl.propTypes = {
 
 const  mapDispatchToProps = ( dispatch ) => {
 
-    // this.props.dispatch = dispatch;
-
     const dispatchBrightnessValue = (value) => { dispatch( setBrightness( value ) ) };
-    const dispatchContrastValue = (value) => { dispatch( setContrast( value ) ) };
+    const dispatchContrastValue   = (value) => { dispatch( setContrast( value ) ) };
+    const dispatchGrayscaleValue  = (value) => { dispatch( setGrayscale( value ) ) };
+    const dispatchHueValue        = (value) => { dispatch( setHue( value ) ) };
+    const dispatchBlurValue       = (value) => { dispatch( setBlur( value ) ) };
 
     const dispatchesObj = {
         dispatchBrightnessValue,
-        dispatchContrastValue
+        dispatchContrastValue,
+        dispatchGrayscaleValue,
+        dispatchHueValue,
+        dispatchBlurValue
     };
 
     return(dispatchesObj);

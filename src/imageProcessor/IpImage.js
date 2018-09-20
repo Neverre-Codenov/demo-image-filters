@@ -6,14 +6,38 @@ class IpImage extends React.Component {
 
     render() {
 
+        console.log(this.props.ipState);
+
         const {
             brightness,
-            contrast
+            contrast,
+            grayscale,
+            hue,
+            blur
         } = this.props.ipState;
+
+        // const filters = `
+        //     contrast(${contrast}%)
+        //     brightness(${brightness}%)
+        //     grayscale(${grayscale}%)
+        //     hue-rotate(${hue})
+        //     blur(${blur}%)
+        // `;
+
+        // const filters = `
+        //     contrast(${contrast}%)
+        //     brightness(${brightness}%)
+        //     hue-rotate(${hue}deg)
+        // `;
+
+        // const filters = `
+        //     contrast(${contrast}%)
+        //     brightness(${brightness}%)
+        // `;
 
         const imgStyles = {
             height: '300px',
-            filter: 'contrast(' + contrast + '%) brightness(' + brightness + '%)'
+            filter: `brightness(${brightness}%) contrast(${contrast}%) hue-rotate(${hue}deg) grayscale(${grayscale}%) blur(${blur}px)`,
         };
 
         return(
