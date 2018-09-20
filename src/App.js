@@ -11,13 +11,10 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">React / Node.js Image Processing Demo</h1>
+          <div className="App-title">React.js Image Processing Demo</div>
         </header>
         <main>
-            <div className='app-description'>This is a simple react-app intended to demonstrate image processing features available through node.js and react.</div>
-            <div className="image-area">
-                <ImageProcessor  />
-            </div>
+            <ImageProcessor  />
         </main>
       </div>
     );
