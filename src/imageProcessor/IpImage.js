@@ -14,7 +14,7 @@ class IpImage extends React.Component {
         } = this.props.ipState;
 
         const imgStyles = {
-            height: '300px',
+            //height: '300px',
             filter: `brightness(${brightness}%) contrast(${contrast}%) hue-rotate(${hue}deg) grayscale(${grayscale}%) blur(${blur}px)`,
         };
 

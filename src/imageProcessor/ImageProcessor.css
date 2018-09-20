@@ -1,0 +1,34 @@
+.image-processor-area {
+
+    position: relative;
+
+    margin: 2.5% 5%;
+
+    border: solid 1px red;
+
+}
+
+.image-area {
+    border: solid 2px #888;
+    border-radius: 0.5em;
+    width: 60%;
+    overflow: hidden;
+}
+
+.image-area > img {
+    width: 100%;
+}
+
+.slider-panel {
+    position:  absolute;
+    top: 2em;
+    right: 1em;
+
+    display: inline-block;
+
+
+    border: solid 2px #A88;
+
+    width: 30%
+
+}
