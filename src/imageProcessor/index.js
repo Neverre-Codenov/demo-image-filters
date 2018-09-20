@@ -3,6 +3,8 @@ import ProcessImage from 'react-imgpro';
 
 import SliderControl from './SliderControl';
 
+import {connect} from "react-redux";
+
 class ImageProcessor extends React.Component {
 
     constructor(props) {
@@ -18,6 +20,13 @@ class ImageProcessor extends React.Component {
     }
 
     render() {
+
+        console.log( this.props.ipState );
+
+        const {
+            brightness
+        } = this.props.ipState;
+
         return (
 
             <div className="image-processor-area">
@@ -31,7 +40,7 @@ class ImageProcessor extends React.Component {
                     //         amount: 20
                     //     }
                     // }}
-                    brightness={0}
+                    brightness={brightness}
                     contrast={0}
                     greyscale={0}
 
@@ -47,11 +56,19 @@ class ImageProcessor extends React.Component {
                   initValue={0}
                 />
 
+                <div className='test'>test {this.props.ipState.brightness}</div>
+
             </div>
 
         )
     }
 }
+
+const mapStateToProps = ( state, props ) => {
+    return state;
+};
+
+ImageProcessor = connect(mapStateToProps)(ImageProcessor);
 
 export default ImageProcessor;
 

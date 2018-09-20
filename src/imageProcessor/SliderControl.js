@@ -4,6 +4,12 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/lab/Slider';
 
+
+import {connect} from 'react-redux';
+
+import { setBrightness } from './ipActionCreators';
+
+
 const styles = {
     root: {
         width: 300,
@@ -22,6 +28,9 @@ class SliderControl extends React.Component {
 
     handleChange = (event, value) => {
         this.setState({ value });
+
+        this.props.dispatchBrightnessValue( value );
+
     };
 
     render() {
@@ -53,5 +62,22 @@ class SliderControl extends React.Component {
 SliderControl.propTypes = {
     classes: PropTypes.object.isRequired,
 };
+
+
+const  mapDispatchToProps = ( dispatch ) => {
+
+    // this.props.dispatch = dispatch;
+
+    const dispatchBrightnessValue = (value) => { dispatch( setBrightness( value ) ) };
+
+    const dispatchesObj = {
+        dispatchBrightnessValue
+    };
+
+    return(dispatchesObj);
+
+};
+
+SliderControl = connect( null, mapDispatchToProps )(SliderControl);
 
 export default withStyles(styles)(SliderControl);

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
+import { connect } from "react-redux";
+
 import './App.css';
 
 import ImageProcessor from './imageProcessor';
@@ -9,26 +11,24 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">React / Node.js Image Processing Demo</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-
-          <div className="image-area">
-              <ImageProcessor  />
-
-
-          </div>
-
+        <main>
+            <div className='app-description'>This is a simple react-app intended to demonstrate image processing features available through node.js and react.</div>
+            <div className="image-area">
+                <ImageProcessor  />
+            </div>
+        </main>
       </div>
     );
   }
 }
 
+const mapStateToProps = ( state, props ) => {
+    return state;
+};
+
+App = connect(mapStateToProps)(App);
+
 export default App;
-
-
-
 
