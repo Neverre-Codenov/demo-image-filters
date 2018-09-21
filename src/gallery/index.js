@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {setBrightness} from "../imageProcessor/ipActionCreators";
+import {withRouter} from "react-router-dom";
 
 const imageUrls = {
     SPACE:     "./images/space-day.jpg",
@@ -25,6 +25,7 @@ class Gallery extends React.Component {
     handleClick( url, evt  ) {
         this.setState({ selected: url });
         this.props.dispatchSelectedImage( url );
+        this.props.history.push( "/" );
     }
 
     renderList() {
@@ -76,5 +77,6 @@ function mapDispatchToProps( dispatch, ownProps ) {
 }
 
 Gallery = connect(null, mapDispatchToProps)(Gallery);
+Gallery = withRouter( Gallery );
 
 export default Gallery;
