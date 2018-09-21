@@ -16,6 +16,7 @@
 }
 
 .image-area > img {
+    display: block;
     width: 100%;
 }
 
