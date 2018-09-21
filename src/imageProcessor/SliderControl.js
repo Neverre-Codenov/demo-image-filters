@@ -6,16 +6,10 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/lab/Slider';
 import {connect} from 'react-redux';
-
-//import MuiThemeProvider from 'material-ui/lib/MuiThemeProvider';
-
-//import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-
-// import getMuiTheme from 'material-ui/lib/styles/getMuiTheme';
-
-// import createMuiTheme from 'material-ui/styles/theme';
-
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import {
+    MuiThemeProvider,
+    createMuiTheme
+} from '@material-ui/core/styles';
 
 // -- CUSTOM ------
 import {
@@ -27,17 +21,12 @@ import {
 } from './ipActionCreators';
 
 const muiTheme = createMuiTheme({
-
-
     overrides: {
-
         MuiTypography: {
             colorTextPrimary: {
                 color: "#644"
             }
         },
-
-
         MuiSlider: {
             thumb: {
                 backgroundColor: '#caa',
@@ -63,19 +52,11 @@ const muiTheme = createMuiTheme({
             }
         },
     }
-
 });
 
 const styles = {
     root: {
         width: '90%',
-
-
-        // ['@media (max-width:780px)']: { // eslint-disable-line no-useless-computed-key
-        //     width: 100
-        // }
-
-
     },
 };
 

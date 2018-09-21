@@ -20,7 +20,8 @@ class IpImage extends React.Component {
         return(
             <div className="image-area">
                 <img
-                    src="./images/space-day.jpg"
+                    // src="./images/space-day.jpg"
+                    src={this.props.galleryState.selectedImageUrl}
                     style={imgStyles}
                 />
             </div>

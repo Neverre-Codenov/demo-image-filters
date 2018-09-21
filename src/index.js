@@ -12,8 +12,12 @@ import {
 
 import { Provider } from "react-redux";
 import * as ipReducers from "./imageProcessor/IpReducers";
+import * as galleryReducers from "./gallery/GalleryReducers";
 
-const appReducers = combineReducers( { ipState: ipReducers.ipReducer} );
+const appReducers = combineReducers( {
+    ipState: ipReducers.ipReducer,
+    galleryState: galleryReducers.GalleryReducer
+} );
 const imgProcStore = createStore( appReducers, {} );
 
 const rootRender = <Provider store={imgProcStore}>

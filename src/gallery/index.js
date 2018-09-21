@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {setBrightness} from "../imageProcessor/ipActionCreators";
 
 const imageUrls = {
     SPACE:     "./images/space-day.jpg",
@@ -17,6 +19,12 @@ class Gallery extends React.Component {
             selected: imageUrls.SPACE
         }
 
+        this.handleClick = this.handleClick.bind( this );
+    }
+
+    handleClick( url, evt  ) {
+        this.setState({ selected: url });
+        this.props.dispatchSelectedImage( url );
     }
 
     renderList() {
@@ -26,7 +34,10 @@ class Gallery extends React.Component {
             const classNames = ( imageUrls[key] === selected ) ? iClassName + " selected" : iClassName;
             return(
                 <li key={key}>
-                    <div className={classNames}>
+                    <div
+                        className={classNames}
+                        onClick={ (e) => this.handleClick(imageUrls[key], e) }
+                    >
                         <img
                             src={imageUrls[key]}
                             height={100}
@@ -50,5 +61,20 @@ class Gallery extends React.Component {
 
     }
 }
+
+function mapDispatchToProps( dispatch, ownProps ) {
+    const dispatchSelectedImage = (iurl) => {
+        dispatch( {
+            type:"set selected image",
+            payload: iurl
+        } );
+    };
+    const dispatches = {
+        dispatchSelectedImage
+    };
+    return dispatches;
+}
+
+Gallery = connect(null, mapDispatchToProps)(Gallery);
 
 export default Gallery;
