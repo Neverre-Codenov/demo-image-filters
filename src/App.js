@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-
 import { connect } from "react-redux";
+import { Route } from 'react-router-dom';
 
 import './App.css';
 
 import ImageProcessor from './imageProcessor';
+import Navigation from './nav/Navigation';
 
 class App extends Component {
   render() {
@@ -13,8 +14,21 @@ class App extends Component {
         <header className="App-header">
           <div className="App-title">React.js Image Processing Demo</div>
         </header>
+        <div className='nav-wrap'>
+          <Navigation/>
+        </div>
         <main>
-            <ImageProcessor  />
+            <Route
+                exact
+                path="/gallery"
+                component={ImageProcessor}
+            />
+            <Route
+                exact
+                path="/"
+                component={ImageProcessor}
+            />
+            {/*<ImageProcessor  />*/}
         </main>
       </div>
     );
