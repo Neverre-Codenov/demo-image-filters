@@ -14,14 +14,13 @@ class IpImage extends React.Component {
         } = this.props.ipState;
 
         const imgStyles = {
-            //height: '300px',
             filter: `brightness(${brightness}%) contrast(${contrast}%) hue-rotate(${hue}deg) grayscale(${grayscale}%) blur(${blur}px)`,
         };
 
         return(
             <div className="image-area">
                 <img
-                    src="http://localhost:3000/test-image.jpg"
+                    src="./images/test-image.jpg"
                     style={imgStyles}
                 />
             </div>
