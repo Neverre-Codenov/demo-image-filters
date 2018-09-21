@@ -1,10 +1,10 @@
+:root {
+    --breaking-width: 870px;
+}
+
 .image-processor-area {
-
     position: relative;
-
     margin: 2.5% 5%;
-
-    border: solid 1px red;
 
 }
 
@@ -21,7 +21,7 @@
 
 .slider-panel {
     position:  absolute;
-    top: 2em;
+    top: 2vw;
     right: 1em;
     display: inline-block;
     border: solid 1px #A88;
@@ -30,4 +30,42 @@
     padding: 1em;
     text-align: left;
     background-color: #eee;
+}
+
+@media screen and (max-width: 870px)  {
+
+    .slider-panel {
+        position:  static;
+        display: block;
+        width: 70%;
+        margin-left:  auto;
+        margin-right: auto;
+    }
+
+    .image-area {
+        width:    80%;
+        margin-left:  auto;
+        margin-right: auto;
+        margin-bottom: 5vw;
+        overflow: hidden;
+    }
+}
+
+@media screen and (max-width: 870px) and (orientation: landscape) {
+    .slider-panel {
+        position:  absolute;
+        top:   -1em;
+        right: 0;
+        display: inline-block;
+        width: 30%;
+        font-size: small;
+    }
+
+    .image-area {
+        position:  absolute;
+        top:   0;
+        left:  0;
+        width: 60%;
+    }
+
 }
