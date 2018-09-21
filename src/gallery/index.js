@@ -1,3 +1,5 @@
+import './Gallery.css';
+
 import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
@@ -16,8 +18,8 @@ class Gallery extends React.Component {
         super(props);
 
         this.state = {
-            selected: imageUrls.SPACE
-        }
+            selected: this.props.galleryState.selectedImageUrl
+        };
 
         this.handleClick = this.handleClick.bind( this );
     }
@@ -76,7 +78,11 @@ function mapDispatchToProps( dispatch, ownProps ) {
     return dispatches;
 }
 
-Gallery = connect(null, mapDispatchToProps)(Gallery);
+const mapStateToProps = ( state, props ) => {
+    return state;
+};
+
+Gallery = connect(mapStateToProps, mapDispatchToProps)(Gallery);
 Gallery = withRouter( Gallery );
 
 export default Gallery;

@@ -1,0 +1,9 @@
+.gallery-area li {
+    list-style: none;
+    cursor: pointer
+}
+
+
+.gallery-area li div.selected img {
+    border: solid 4px red;
+}

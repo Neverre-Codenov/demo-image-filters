@@ -1,3 +1,14 @@
+.navigation {
+    background-color: darkorange;
+    padding: 0.25em;
+    font-size: smaller;
+    font-weight: 600;
+}
+
+a, a:visited {
+    color: #ffe;
+}
+
 .spacer {
     display: inline-block;
     width: 5em;
