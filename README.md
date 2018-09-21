@@ -1,6 +1,12 @@
+Image filter demo illustrating:
+
+1. Effects of applying a variety of image filters,
+
+2. Responsive design features,
+
+3. React/redux implementation
+
+4. Material ui components.
 
 
-Note: deployed to aws Endpoint :
-
-  http://demo-image-filters.s3-website.us-east-2.amazonaws.com
 
