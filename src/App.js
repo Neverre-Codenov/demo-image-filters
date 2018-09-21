@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Route } from 'react-router-dom';
+import {
+    Route,
+    withRouter
+} from 'react-router-dom';
 
 import './App.css';
 
-import ImageProcessor from './imageProcessor';
 import Navigation from './nav/Navigation';
+import ImageProcessor from './imageProcessor';
+import Gallery    from './gallery';
 
 class App extends Component {
   render() {
@@ -18,15 +22,15 @@ class App extends Component {
           <Navigation/>
         </div>
         <main>
-            <Route
-                exact
-                path="/gallery"
-                component={ImageProcessor}
-            />
+
             <Route
                 exact
                 path="/"
                 component={ImageProcessor}
+            />
+            <Route
+                path="/gallery"
+                component={Gallery}
             />
             {/*<ImageProcessor  />*/}
         </main>
@@ -40,6 +44,7 @@ const mapStateToProps = ( state, props ) => {
 };
 
 App = connect(mapStateToProps)(App);
+App = withRouter(App);
 
 export default App;
 
