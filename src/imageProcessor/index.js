@@ -1,7 +1,7 @@
 import './ImageProcessor.css';
 
 import React from 'react';
-// import {connect} from "react-redux";
+import {connect} from "react-redux";
 
 // ---- custom ----
 import IpImage from './IpImage';
@@ -10,6 +10,15 @@ import SliderControl from './SliderControl';
 class ImageProcessor extends React.Component {
 
     render() {
+
+        const {
+            brightness,
+            contrast,
+            grayscale,
+            hue,
+            blur
+        } = this.props.ipState;
+
         return (
             <div className="image-processor-area">
                 <IpImage />
@@ -20,7 +29,7 @@ class ImageProcessor extends React.Component {
                         label="Brightness"
                         min={0}
                         max={200}
-                        initValue={100}
+                        initValue={brightness}
                     />
 
                     <SliderControl
@@ -28,7 +37,7 @@ class ImageProcessor extends React.Component {
                         label="Contrast"
                         min={0}
                         max={200}
-                        initValue={100}
+                        initValue={contrast}
                     />
 
                     <SliderControl
@@ -36,7 +45,7 @@ class ImageProcessor extends React.Component {
                         label="Grayscale"
                         min={0}
                         max={100}
-                        initValue={0}
+                        initValue={grayscale}
                     />
 
                     <SliderControl
@@ -44,7 +53,7 @@ class ImageProcessor extends React.Component {
                         label="Hue"
                         min={0}
                         max={360}
-                        initValue={0}
+                        initValue={hue}
                     />
 
                     <SliderControl
@@ -52,7 +61,7 @@ class ImageProcessor extends React.Component {
                         label="Blur"
                         min={0}
                         max={50}
-                        initValue={0}
+                        initValue={blur}
                     />
 
                 </div>
@@ -64,10 +73,10 @@ class ImageProcessor extends React.Component {
     }
 }
 
-// const mapStateToProps = ( state, props ) => {
-//     return state;
-// };
-//
-// ImageProcessor = connect(mapStateToProps)(ImageProcessor);
+const mapStateToProps = ( state, props ) => {
+    return state;
+};
+
+ImageProcessor = connect(mapStateToProps)(ImageProcessor);
 
 export default ImageProcessor;
